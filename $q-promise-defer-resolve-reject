@@ -1,0 +1,22 @@
+angular.module("myapp", [])
+.factory("queryData", function($http, $q) {
+  var resultData = {}
+  /* get方法获取接口数据 */
+  resultData.getData = function(urlParams, params) {
+    var deferred = $q.defer();
+    $http.get(url + urlParams, {params: params}).success(function(data) {
+      dererred.resolve(data);
+    }).error(function(data, status) {
+      deferred.reject(data);
+      if(statsu == 401 || status == -1) {
+        // 做特殊处理
+      }
+      else {
+        // 或者答应错误编号
+      }
+      return false;
+    });
+    return defered.promise;
+  }
+  return resultData;
+});
